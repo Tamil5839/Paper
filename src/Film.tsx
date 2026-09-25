@@ -11,6 +11,7 @@ import { Variant } from './scene/camera';
 import { lightingAt } from './scene/lighting';
 import { Lights } from './scene/Lights';
 import { World } from './scene/World';
+import { Soundtrack } from './audio/Soundtrack';
 
 patchSoftShadows();
 if (typeof window !== 'undefined' && (getInputProps() as { timing?: boolean }).timing) {
@@ -48,6 +49,7 @@ export const Film: React.FC<FilmProps> = ({ variant }) => {
           <PostFX />
         </FxContext.Provider>
       </ThreeCanvas>
+      <Soundtrack />
     </AbsoluteFill>
   );
 };

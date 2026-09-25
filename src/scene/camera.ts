@@ -1,4 +1,4 @@
-import { clamp, ease, lerp, seg, smoothstep, spline3, V3 } from '../lib/anim';
+import { clamp, ease, lerp, smoothstep, spline3, V3 } from '../lib/anim';
 import { birdsAt, HOLD_POINT, redBirdPos, RED_REST } from './actors';
 
 // Camera paths for every shot. Each shot is a run of keyframes interpolated
@@ -152,4 +152,3 @@ export const feedFov = (fov: number) => {
   return (Math.atan(t) * 2 * 180) / Math.PI;
 };
 
-export const _u = { seg, lerp3 };

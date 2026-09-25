@@ -6,7 +6,6 @@ import { clamp, ease, lerp, onTwos, seg, V3 } from '../lib/anim';
 import { crumpledBall, birdParts } from '../paper/origami';
 import { getPaperTextures } from '../paper/textures';
 import { ballsAt, BirdState, birdsAt, HOLD_POINT, lostWingState, RED_REST, redSheet } from './actors';
-import { ROOM } from './room';
 import { Wire } from './Stick';
 
 // Paper birds (origami, wings flap by folding along creases), their crumpled
@@ -215,4 +214,3 @@ export const Birds: React.FC<{ frame: number }> = ({ frame }) => {
   );
 };
 
-export const _r = ROOM;

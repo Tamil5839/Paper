@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react';
-import * as THREE from 'three';
 import { BEATS, TEXT } from '../story';
 import { C } from '../palette';
 import { ease, handWobble, lerp, onTwos, overshoot, seg, track } from '../lib/anim';
@@ -125,4 +124,3 @@ export const EndTag: React.FC<{ frame: number }> = ({ frame }) => {
   );
 };
 
-export const _t = THREE;

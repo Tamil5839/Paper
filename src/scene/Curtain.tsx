@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react';
-import * as THREE from 'three';
 import { BEATS } from '../story';
 import { C } from '../palette';
 import { clamp, ease, lerp, onTwos, overshoot, seg } from '../lib/anim';
@@ -130,4 +129,3 @@ export const Curtain: React.FC<{ frame: number }> = ({ frame }) => {
 };
 
 export const curtainIsOpen = (frame: number) => curtainOpenAmount(frame) > 0.9;
-export const _unused = THREE;

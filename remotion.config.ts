@@ -4,11 +4,14 @@ import path from 'node:path';
 
 // Output for X/Twitter: H.264, yuv420p, CRF 16, 24 fps (set per composition).
 Config.setEntryPoint('src/index.ts');
-Config.setCodec('h264');
-Config.setCrf(16);
-Config.setPixelFormat('yuv420p');
-Config.setX264Preset('slow');
-Config.setVideoImageFormat('png'); // lossless intermediates keep the paper grain clean
+const audioOnly = /--codec[= ](wav|mp3|aac)\b/.test(process.argv.join(' '));
+if (!audioOnly) {
+  Config.setCodec('h264');
+  Config.setCrf(16);
+  Config.setPixelFormat('yuv420p');
+  Config.setX264Preset('slow');
+  Config.setVideoImageFormat('png'); // lossless intermediates keep the paper grain clean
+}
 Config.setAudioBitrate('192k');
 Config.setDelayRenderTimeoutInMilliseconds(300000);
 

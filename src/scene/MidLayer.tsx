@@ -5,7 +5,6 @@ import { paper } from '../paper/materials';
 import { circleD, polyD, Pt, rectD } from '../paper/path';
 import { blob } from '../paper/shapes';
 import { LitPanes, Pane } from './lit';
-import { Wire } from './Stick';
 
 // Middle distance: flat rooftops with parapets and water tanks, a clothesline,
 // coconut palms and a gulmohar tree with muted blossom.
@@ -195,4 +194,3 @@ export const MidLayer: React.FC<{ frame: number; windowsLit: number; offProgress
   );
 };
 
-export const _w = Wire;

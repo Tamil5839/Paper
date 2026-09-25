@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import * as THREE from 'three';
 import { BEATS } from '../story';
 import { C } from '../palette';
-import { clamp, handWobble, lerp, onTwos, seg } from '../lib/anim';
+import { clamp, handWobble, onTwos } from '../lib/anim';
 import { hash1, rng } from '../lib/random';
 import { cutout } from '../paper/cutout';
 import { inkStrokes, layoutText } from '../paper/lettering';
@@ -331,4 +331,3 @@ export const Props: React.FC<{ frame: number; lampLevel: number; screenGlow: num
   </group>
 );
 
-export const _u = { lerp, seg };

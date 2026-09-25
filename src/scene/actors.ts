@@ -1,5 +1,5 @@
 import { BEATS } from '../story';
-import { clamp, ease, Key, lerp, onTwos, seg, track, track3, V3 } from '../lib/anim';
+import { clamp, ease, Key, lerp, onTwos, seg, track3, V3 } from '../lib/anim';
 import { hash1, noise1 } from '../lib/random';
 import { ROOM } from './room';
 
@@ -477,4 +477,3 @@ export const stackCount = (frame: number) => {
   return Math.max(0, 7 - uses.filter((u) => f2 >= u).length);
 };
 
-export const _t = track;

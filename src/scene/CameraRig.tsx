@@ -1,7 +1,6 @@
 import { useThree } from '@react-three/fiber';
 import React, { useLayoutEffect } from 'react';
 import * as THREE from 'three';
-import { clamp, lerp, spline3, V3 } from '../lib/anim';
 import { FxState, useFx } from '../post/fx';
 import { cameraAt, Variant } from './camera';
 
@@ -35,4 +34,3 @@ export const CameraRig: React.FC<{ frame: number; variant: Variant }> = ({ frame
   return null;
 };
 
-export const _keep = { clamp, lerp, spline3 } as unknown as V3;

@@ -5,7 +5,7 @@ import { ease, handWobble, lerp, onTwos, seg } from '../lib/anim';
 import { hash1, rng } from '../lib/random';
 import { cutout } from '../paper/cutout';
 import { paper, vellum } from '../paper/materials';
-import { circleD, polyD, Pt, rectD } from '../paper/path';
+import { polyD, Pt, rectD } from '../paper/path';
 import { LitPanes, Pane } from './lit';
 import { Stick } from './Stick';
 
@@ -205,4 +205,3 @@ export const Skyline: React.FC<{ frame: number; windowsLit: number; offProgress:
   );
 };
 
-export const _c = circleD;
