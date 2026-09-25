@@ -20,8 +20,6 @@ export const musicFile = () => {
   return MUSIC_CANDIDATES.find((m) => files.includes(m)) ?? PLACEHOLDER;
 };
 
-const FILE_FRAMES: Record<string, number> = {};
-
 export const Soundtrack: React.FC = () => {
   const music = musicFile();
   return (
@@ -30,7 +28,7 @@ export const Soundtrack: React.FC = () => {
       {CUES.map((cue, i) => {
         const fadeIn = cue.fadeIn ?? 0;
         const fadeOut = cue.fadeOut ?? 0;
-        const dur = cue.dur ?? FILE_FRAMES[cue.src];
+        const dur = cue.dur; // undefined: play the whole file
         return (
           <Sequence key={i} from={cue.at} durationInFrames={dur} name={cue.src.replace('sfx/', '')} layout="none">
             <Html5Audio
