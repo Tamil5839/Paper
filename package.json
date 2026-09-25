@@ -1,0 +1,35 @@
+{
+  "name": "paper-birds",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Paper Birds \u2014 a code-generated handmade paper toy theatre short film (Remotion + three.js)",
+  "type": "module",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "start": "remotion studio src/index.ts",
+    "stills": "node scripts/stills.mjs",
+    "render": "remotion render src/index.ts PaperBirds out/paper-birds-16x9.mp4",
+    "render:feed": "remotion render src/index.ts PaperBirdsFeed out/paper-birds-4x5.mp4",
+    "audio": "node scripts/gen-audio.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@react-three/fiber": "^9.8.1",
+    "@remotion/bundler": "^4.0.529",
+    "@remotion/cli": "^4.0.529",
+    "@remotion/renderer": "^4.0.529",
+    "@remotion/three": "^4.0.529",
+    "clipper-lib": "^6.4.2",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "remotion": "^4.0.529",
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/three": "^0.186.0",
+    "typescript": "^5.9.3"
+  }
+}
