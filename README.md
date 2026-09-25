@@ -9,6 +9,8 @@ An indie builder works late in a small room. Their ideas are folded paper birds
 that lift off the laptop and fall, again and again, until one, folded slowly by
 hand from a coral sheet, finally flies out of the window into the dawn.
 
+![Frames 150, 350, 600, 850, 1050, 1300, 1500 and 1750 of the 16:9 cut](docs/stills.jpg)
+
 * **Stack:** Remotion 4 + `@remotion/three` + three.js (React Three Fiber). Every
   frame is a pure function of `useCurrentFrame()`; all randomness comes from seeded
   PRNGs, so each render is identical.
@@ -40,7 +42,8 @@ PAPER_BIRDS_GL=swangle npm run render
 ```
 
 The output is the same; it just takes longer (about 3–4 s per frame on 4 CPU cores,
-so a full cut takes roughly 1.5–2 h). Other environment variables:
+so a full cut takes roughly 1.5–2 h, or about 3 h for both cuts rendering side by
+side). Other environment variables:
 
 | variable | effect |
 | --- | --- |
@@ -52,11 +55,16 @@ so a full cut takes roughly 1.5–2 h). Other environment variables:
 and 1750 for both compositions. Pick your own with
 `FRAMES=90,400 COMPS=PaperBirds npm run stills`.
 
-If you render the picture with `--muted` (or change only the sound), put the
-soundtrack on afterwards without re-rendering the picture:
+`npm run render` renders the picture muted (`out/video-16x9.mp4`), then
+[`scripts/mux-audio.mjs`](scripts/mux-audio.mjs) renders the sound mix on its own
+(about a minute, no 3D) and muxes it in with ffmpeg. That keeps every sound on its
+frame: the AAC track Remotion muxes by itself starts 2048 samples (about 43 ms, one
+frame) late. It also means a new music track or a changed cue needs only the mux,
+not a new picture:
 
 ```bash
-node scripts/mux-audio.mjs out/video-16x9.mp4 out/paper-birds-16x9.mp4
+npm run mux -- out/video-16x9.mp4 out/paper-birds-16x9.mp4
+npm run mux -- out/video-4x5.mp4 out/paper-birds-4x5.mp4
 ```
 
 ## Story beats
@@ -187,7 +195,9 @@ public/
   steel tumbler set down, calendar page flips, crickets, morning birds and room tone.
 * **Music:** put your track at `public/music.mp3` (or `public/music/music.mp3`) and
   the film uses it. Until then it plays a generated music-box and soft-piano
-  placeholder (`public/music/placeholder-musicbox.mp3`) written to the story.
+  placeholder (`public/music/placeholder-musicbox.mp3`) written to the story. With
+  the picture already rendered, `npm run mux` (above) swaps the music in without
+  re-rendering it.
 * **Mix:** the music bed sits at −18 dB, drops to −24 dB while the ideas fail, swells
   to −13 dB on the flight and dawn, and resolves as the curtain closes
   (`musicDb` in [`src/audio/cues.ts`](src/audio/cues.ts)). Foley is close and detailed,

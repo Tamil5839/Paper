@@ -8,10 +8,11 @@
     "studio": "remotion studio src/index.ts",
     "start": "remotion studio src/index.ts",
     "stills": "node scripts/stills.mjs",
-    "render": "remotion render src/index.ts PaperBirds out/paper-birds-16x9.mp4",
-    "render:feed": "remotion render src/index.ts PaperBirdsFeed out/paper-birds-4x5.mp4",
+    "render": "remotion render src/index.ts PaperBirds out/video-16x9.mp4 --muted && node scripts/mux-audio.mjs out/video-16x9.mp4 out/paper-birds-16x9.mp4",
+    "render:feed": "remotion render src/index.ts PaperBirdsFeed out/video-4x5.mp4 --muted && node scripts/mux-audio.mjs out/video-4x5.mp4 out/paper-birds-4x5.mp4",
     "audio": "node scripts/gen-audio.mjs",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "mux": "node scripts/mux-audio.mjs"
   },
   "license": "UNLICENSED",
   "dependencies": {
